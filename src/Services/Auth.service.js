@@ -43,7 +43,7 @@ export const deleteBehaviour = async (_id) => {
     const authToken = JSON.parse(localStorage.getItem("token"));
     const response = await Action.delete(`admin/deleteBehavior/${_id}`, {
       headers: {
-        Authorization: `Bearer ${authToken}`,
+        Authorization: `${authToken}`,
       },
     });
 
@@ -65,7 +65,7 @@ export const addBehavior = async (title, image) => {
 
     const response = await Action.post("admin/addBehavior", formData, {
       headers: {
-        Authorization: `Bearer ${authToken}`,
+        authorization: `${authToken}`,
         "Content-Type": "multipart/form-data",
       },
     });

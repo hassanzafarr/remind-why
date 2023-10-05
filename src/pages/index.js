@@ -57,9 +57,9 @@ const HomePage = () => {
 
   useEffect(() => {
     if (users) {
-      const maleUsers = users.filter((user) => user.profile.gender.toLowerCase() === "male");
+      const maleUsers = users.filter((user) => user?.profile?.gender?.toLowerCase() === "male");
 
-      const femaleUsers = users.filter((user) => user.profile.gender.toLowerCase() === "female");
+      const femaleUsers = users.filter((user) => user?.profile?.gender?.toLowerCase() === "female");
 
       const totalUsers = users.length;
       const malePercentage = Math.trunc((maleUsers.length / totalUsers) * 100);

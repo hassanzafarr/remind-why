@@ -49,7 +49,7 @@ export const UsersTable = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.data.map((user) => (
+              {items?.data?.map((user) => (
                 <TableRow hover key={user._id}>
                   <TableCell>{user.profile.fullName}</TableCell>
                   <TableCell>{user.profile.auth.identifier}</TableCell>

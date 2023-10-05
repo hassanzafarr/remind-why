@@ -49,7 +49,7 @@ export const SynoTable = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.data.map((synopsis) => (
+              {items?.data?.map((synopsis) => (
                 <TableRow hover key={synopsis._id}>
                   <TableCell>{synopsis.user.fullName}</TableCell>
                   <TableCell>{synopsis.behavior.title}</TableCell>
