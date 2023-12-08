@@ -11,6 +11,7 @@ const Page = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
+  const [pageData, setPageData] = useState([]);
   const totalUsersCount = 3;
   const islogin = JSON.parse(typeof window !== "undefined" && localStorage.getItem("isLogin"));
   const router = useRouter();
@@ -26,8 +27,11 @@ const Page = () => {
     const fetchUsers = async () => {
       try {
         const response = await getUsers(page);
+        setPageData(response.data);
 
-        setUsers(response.data);
+        const usersWithFullName = response.data.data.filter((user) => user.profile.fullName);
+        console.log(usersWithFullName, "Users With Filter");
+        setUsers(usersWithFullName);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -79,6 +83,7 @@ const Page = () => {
                 items={users}
                 page={page}
                 onPageChange={handlePageChange}
+                pageData={pageData}
               />
             )}
           </Stack>

@@ -1,4 +1,4 @@
-import { React, useCallback, useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
 import Head from "next/head";
 import { toast } from "react-toastify";
@@ -17,15 +17,12 @@ import {
   Modal,
   Unstable_Grid2 as Grid,
   CardHeader,
-  InputAdornment,
-  IconButton,
-  Paper,
 } from "@mui/material";
 import { getBehaviour, addBehavior, addQuestion } from "src/Services/Auth.service";
 import { BehaviorsCard } from "src/sections/behaviour/behaviour-card";
-import ArrowUpTrayIcon from "@heroicons/react/24/solid/ArrowUpTrayIcon";
+
 import Upload from "src/components/upload";
-// import AttachFile from "@mui/icons-material/AttachFile";
+
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [behaviors, setBehaviors] = useState([]);

@@ -18,7 +18,7 @@ import { Scrollbar } from "src/components/scrollbar";
 import PencilSquareIcon from "@heroicons/react/24/solid/PencilSquareIcon";
 
 export const UsersTable = (props) => {
-  const { items = [], onPageChange = () => {}, page = 0, count = 0 } = props;
+  const { items = [], onPageChange = () => {}, page = 0, count = 0, pageData = [] } = props;
 
   const [openModal, setOpenModal] = useState(false);
   const [User, setModalUser] = useState(null);
@@ -49,7 +49,7 @@ export const UsersTable = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {items?.data?.map((user) => (
+              {items?.map((user) => (
                 <TableRow hover key={user._id}>
                   <TableCell>{user.profile.fullName}</TableCell>
                   <TableCell>{user.profile.auth.identifier}</TableCell>
@@ -90,7 +90,7 @@ export const UsersTable = (props) => {
         labelRowsPerPage=""
         rowsPerPageOptions={[]}
         labelDisplayedRows={({ from, to, count }) => {
-          return `${items.currentPage} of ${items.totalPages}`;
+          return `${pageData.currentPage} of ${pageData.totalPages}`;
         }}
       />
       <Modal

@@ -1,6 +1,4 @@
-import { Action, ActionwithMultipart } from "../config/action";
-import https from "https";
-import { useRouter } from "next/navigation";
+import { Action } from "../config/action";
 
 export const getFeedbacks = async (page) => {
   const response = await Action.get(`admin/helpAndFeedBack?page=${page}`, {

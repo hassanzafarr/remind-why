@@ -45,16 +45,16 @@ export const SynoTable = (props) => {
                 <TableCell>Alarm Time</TableCell>
                 <TableCell>Answer</TableCell>
 
-                <TableCell align="center">Actions</TableCell>
+                {/* <TableCell align="center">Actions</TableCell> */}
               </TableRow>
             </TableHead>
             <TableBody>
               {items?.data?.map((synopsis) => (
                 <TableRow hover key={synopsis._id}>
-                  <TableCell>{synopsis.user.fullName}</TableCell>
-                  <TableCell>{synopsis.behavior.title}</TableCell>
-                  <TableCell>{synopsis.alarm.alarmTime}</TableCell>
-                  <TableCell>{synopsis.answer}</TableCell>
+                  <TableCell>{synopsis?.user?.fullName}</TableCell>
+                  <TableCell>{synopsis?.behavior?.title}</TableCell>
+                  <TableCell>{synopsis?.alarm?.alarmTime}</TableCell>
+                  <TableCell>{synopsis?.answer}</TableCell>
 
                   <TableCell align="center">
                     <Stack
@@ -66,13 +66,13 @@ export const SynoTable = (props) => {
                         alignItems: "center",
                       }}
                     >
-                      <Button
+                      {/* <Button
                         variant="outlined"
                         color="primary"
                         onClick={() => handleOpenViewModal(synopsis)}
                       >
                         View
-                      </Button>
+                      </Button> */}
                     </Stack>
                   </TableCell>
                 </TableRow>
@@ -117,7 +117,7 @@ export const SynoTable = (props) => {
           </Typography>
           {Syno && (
             <>
-              <Typography variant="subtitle1">Full Name: {Syno.answer}</Typography>
+              <Typography variant="subtitle1">Synopsis Answer: {Syno.answer}</Typography>
               {/* <Typography variant="subtitle1">Gender: {Syno.profile.gender}</Typography>
               <Typography variant="subtitle1">
                 Date of Birth: {new Date(Syno.profile.dob).toLocaleDateString()}

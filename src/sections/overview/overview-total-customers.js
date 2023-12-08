@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ArrowRightIcon from "@heroicons/react/24/solid/ArrowRightIcon";
 import Link from "next/link";
 import UsersIcon from "@heroicons/react/24/solid/UsersIcon";
+import Loader from "src/components/Loader";
 import {
   CardActions,
   Divider,
@@ -17,23 +18,7 @@ import {
 } from "@mui/material";
 
 export const OverviewTotalCustomers = (props) => {
-  const { sx } = props;
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getUsers();
-        setUsers(response.data.data);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
-    // Call the fetchData function when the component mounts
-    fetchData();
-  }, []);
+  const { sx, value } = props;
 
   return (
     <Card sx={{ ...sx, padding: 0, margin: 0 }}>
@@ -49,7 +34,7 @@ export const OverviewTotalCustomers = (props) => {
             <Typography color="text.secondary" variant="overline">
               Total Users
             </Typography>
-            <Typography variant="h4">{users.length}</Typography>
+            <Typography variant="h4">{value.length}</Typography>
           </Stack>
           <Avatar
             sx={{

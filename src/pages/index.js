@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
 
-import { OverviewBudget } from "src/sections/overview/overview-budget";
+import { OverviewBudget } from "src/sections/overview/overview-behaviour";
 import { OverviewSales } from "src/sections/overview/overview-sales";
 import { OverviewTasksProgress } from "src/sections/overview/overview-tasks-progress";
 import { OverviewTotalCustomers } from "src/sections/overview/overview-total-customers";
@@ -25,7 +25,7 @@ const HomePage = () => {
   const [users, setUsers] = useState([]);
   const [maleUsers, setMaleUsers] = useState([]);
   const [femaleUsers, setFemaleUsers] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(null);
   const router = useRouter();
 
@@ -46,7 +46,9 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await getUsers();
-        setUsers(response.data.data);
+        const usersWithFullName = response.data.data.filter((user) => user?.profile?.fullName);
+        setUsers(usersWithFullName);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -80,7 +82,7 @@ const HomePage = () => {
 
   const chartData = [
     {
-      name: "This Year",
+      name: "This Month",
       data: [],
     },
   ];
@@ -96,7 +98,7 @@ const HomePage = () => {
         <title>Overview | Remind Why</title>
       </Head>
       <Layout>
-        {isLogin ? (
+        {isLogin && !isLoading ? (
           <Box
             component="main"
             sx={{
