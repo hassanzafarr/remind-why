@@ -6,11 +6,7 @@ Brief description of the project and its purpose.
 
 - [Features](#features)
 - [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+
 
 ## Features
 
