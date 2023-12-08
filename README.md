@@ -1,7 +1,5 @@
 # Remind-Why Dashboard
 
-# Project Title
-
 Brief description of the project and its purpose.
 
 ## Table of Contents
