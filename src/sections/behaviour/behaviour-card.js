@@ -47,7 +47,7 @@ export const BehaviorsCard = ({ behavior, onUpdate, onDeleteBehavior }) => {
       setIsSubmitting(true);
       await deleteBehaviour(behavior._id);
       onDeleteBehavior(behavior._id);
-      toast.success("Behavior deleted successfully!");
+      toast.success("Behavior deleted successfully");
 
       setIsSubmitting(false);
     } catch (error) {
