@@ -26,6 +26,7 @@ const Page = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setIsLoading(true);
         const response = await getSynopsis(page);
 
         setSyno(response.data);

@@ -67,6 +67,7 @@ const Page = () => {
 
   const fetchBehaviours = async () => {
     try {
+      setIsLoading(true);
       const response = await getBehaviour();
       setBehaviors(response.data);
       setIsLoading(false);

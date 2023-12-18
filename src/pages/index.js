@@ -66,7 +66,7 @@ const HomePage = () => {
       const totalUsers = users.length;
       const malePercentage = Math.trunc((maleUsers.length / totalUsers) * 100);
       const femalePercentage = Math.trunc((femaleUsers.length / totalUsers) * 100);
-      console.log(malePercentage);
+
       setMaleUsers(malePercentage);
       setFemaleUsers(femalePercentage);
     }

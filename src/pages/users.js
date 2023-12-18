@@ -26,11 +26,12 @@ const Page = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setIsLoading(true);
         const response = await getUsers(page);
         setPageData(response.data);
 
-        const usersWithFullName = response.data.data.filter((user) => user.profile.fullName);
-        console.log(usersWithFullName, "Users With Filter");
+        const usersWithFullName = response.data.data.filter((user) => user?.profile?.fullName);
+
         setUsers(usersWithFullName);
         setIsLoading(false);
       } catch (error) {

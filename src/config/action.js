@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getAuthToken = () => {
   const userData = JSON.parse(localStorage.getItem("token"));
-  // console.log(userData, "userData");
+
   return userData;
 };
 
